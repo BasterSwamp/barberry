@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/head.html',{
+"title":"Barberry"
+})
+
+<body>
+    <div class="wrapper">
+        @@include('html/header.html',{})
+        <main class="main">
+            <div class="container">
+                <div class="main__body">
+                    <div class="main__column column-info">
+                        <div class="column-info">
+                            <div class="column-info__title">
+                                Королёва Ольга
+                            </div>
+                            <div class="column-info__prof">
+                                Художник & графический дизайнер
+                            </div>
+                            <div class="column-info_button">
+                                <div class="column-info_btn btn"><span>Написать</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__column">
+                        <div class="main__itemmagy">
+                            <img src="img/main_1.png" alt="#">
+                        </div>
+                        <div class="main__img">
+                            <img src="img/bg_circle.png" class="main__image _anim-items" alt="#">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="works">
+            <div class="container">
+                <div class="works__body">
+                    <div class="works__row">
+                        <div class="works__columns column-work">
+                            <div class="column-work__tabs">
+                                <div class="column-work__tab tab">
+                                    <a href="#" class="column-work__title">Лого</a>
+                                </div>
+                                <div class="column-work__img">
+                                    <img src="img/nav/img1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="column-work__tabs">
+                                <div class="column-work__tab">
+                                    <a href="https://www.artstation.com/barberry" class="column-work__title">Арт</a>
+                                </div>
+                                <div class="column-work__img">
+                                    <img src="img/nav/img2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="column-work__tabs">
+                                <div class="column-work__tab">
+                                    <a href="#" class="column-work__title">Кейсы</a>
+                                </div>
+                                <div class="column-work__img">
+                                    <img src="img/nav/img3.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form">
+            <div class="container">
+                <div class="form__body">
+                    <div class="form__item">
+                        <form action="#" id="form" name="main" class="form-footer">
+                            <div class="form-footer__title">
+                                Напишите мне!
+                            </div>
+                            <div class="form-footer__item">
+                                <label for="name" class="form-footer__label">Имя</label>
+                                <input type="text" name="formName" id="name" class="form-footer__input">
+                            </div>
+                            <div class="form-footer__item">
+                                <label for="email" class="form-footer__label">Почта</label>
+                                <input type="email" name="formName" id="email" class="form-footer__input">
+                            </div>
+                            <div class="form-footer__item">
+                                <textarea name="message" id="textarea" placeholder="Я хочу заказать дизайн"
+                                    class="form-footer__input"></textarea>
+                            </div>
+                            <button type="submit" class="form-footer__button btn">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="form__image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        @@include('html/footer.html',{})
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script src="js/app.min.js"></script>
+</body>
+
+</html>

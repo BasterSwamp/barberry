@@ -1,0 +1,203 @@
+//<Миксины>
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	font-size: 0;
+}
+
+@mixin flexboxinline() {
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flex;
+	display: -o-inline-flex;
+	display: inline-flex;
+}
+
+@mixin flexorder($val) {
+	-webkit-box-ordinal-group: $val;
+	-moz-box-ordinal-group: $val;
+	-ms-flex-order: $val;
+	-webkit-order: $val;
+	order: $val;
+}
+@mixin anim($time,$delay){
+	-webkit-transition: all $time ease $delay;
+	-moz-transition: all $time ease $delay;
+	-ms-transition: all $time ease $delay;
+	-o-transition: all $time ease $delay;
+	transition: all $time ease $delay;
+}
+@mixin scale($num){
+	-webkit-transform: scale($num);
+	-moz-transform: scale($num);
+	-ms-transform: scale($num);
+	-o-transform: scale($num);
+	transform: scale($num);
+}
+//<FORM>=======================
+.form{}
+.form-row{/*@include flexbox();margin: 0 -15px;*/}
+.form__column{/*padding: 0 15px;*/}
+.form-input{}
+.form-button{}
+//</FORM>=======================
+
+//<BUTTONS>=======================
+.btn{
+    display: inline-block; 
+    color: #fff;  
+    height: 56px;
+    padding: 0px 42px;
+    background-color: #007397;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;    
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        @include scale(0);
+        @include anim(0.3s,0s);
+    }
+
+    &_w {
+        color: #fff;
+        border: 1px solid #fff;
+        &::after {
+            background-color: #fff;
+        }
+    }
+
+    &_b {
+        color: #000;
+        border: 1px solid #000;
+        &::after{
+            background-color: #000;
+        }
+    }
+
+    span {
+        /*@include anim(0.3s,0s);
+        position: relative;
+        z-index: -1;*/
+    }
+    &:hover {
+        &.btn_w{
+            color: #000;
+        }
+        &.btn_b{
+            color: #fff;
+        }
+        &::after{
+            @include scale(1);
+        }
+    }
+    &.fw{width: 100%;}
+}
+//</BUTTONS>=======================
+
+//<SELECT>=======================
+.select-block{position: relative;}
+.select__label{z-index: 2;position: absolute;top: -8px;background-color: #f7f7f7;padding: 0 5px;color: #979797;font-weight: 600;font-size: 13px;}
+.select{position: relative;cursor: pointer;
+    .select-title{
+        z-index: 1;
+        width: 100%;
+        height: 55px;
+        border: 1px solid #dedede;
+        position: relative;
+        background-color: #fff;
+    }
+    .select-title_arrow{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45px;
+        height: 100%;
+        background: url() center no-repeat;
+    }
+    .select-title__value{
+        color: #000;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 53px;
+        display: block;
+        overflow: hidden;
+        padding: 0 45px 0 25px;
+        white-space: nowrap;
+        text-transform: none;
+        text-overflow: ellipsis;
+    }
+    .select-options{
+        position: absolute;
+        z-index: 10;
+        top: 54px;
+        display: none;
+        overflow: hidden;
+        min-width: 100%;
+        background-color: #fff;
+        border: 1px solid #dedede;
+        padding: 10px 20px 10px 25px;
+    }
+    .select-options-scroll{min-height: 80px;overflow: auto;}
+    .select-options-list{padding: 0px 0px 0px 0px;}
+    .select-options__value{
+        color: #000;
+        font-size: 20px;
+        margin: 0px 0px 15px 0px;
+        &:last-child{margin: 0px 0px 0px 0px;}
+        &:hover{color: #000;}
+    }
+}
+//</SELECT>=======================
+
+//<INPUT>=======================
+input[type=text],input[type=email],input[type=tel],textarea{-webkit-appearance:none;-moz-appearance:none;appearance: none;}
+.input{
+    position: relative;
+    //border: 1px solid #000;
+    border-top: 1px solid #000;
+    height: 50px;
+    border-radius: 0px;
+    width: 100%;
+    display: block;
+    font-size: 15px;
+    padding: 0px 20px;
+    background-color: #f8f7f7;
+    &.focus{}
+    &.err{}
+}
+textarea.input{
+    resize: none;
+    padding: 0px 0px;
+}
+//</INPUT>=======================
+
+//<CHECK>=======================
+.check{position: relative;padding-left: 25px;color: #5f5f5f;line-height: 18px;cursor: pointer;
+    input{display: none;}
+    &::before{
+        content: '';
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #a3a3a3;
+        position: absolute;
+    }
+    &.active{
+        &::before{
+            background: url() center no-repeat;
+        }
+    }
+}
+//</CHECK>=======================
